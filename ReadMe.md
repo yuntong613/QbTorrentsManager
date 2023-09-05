@@ -22,6 +22,6 @@ new_tracker：替换的新trakcer
 
 categories：qb分类列表
 
-days：未活动天数，默认60天
+days：未活动天数，默认50天
 
 file_size：文件大小，默认小于50G

@@ -2,7 +2,7 @@ from qbittorrentapi import Client
 import datetime
 
 
-def check_tr_list(category, days=60, file_size=50):
+def check_tr_list(category, days=50, file_size=50):
     rm_hash = []
     rm_list = []
     print('*' * 10, category, '*' * 10)
@@ -25,15 +25,17 @@ def check_tr_list(category, days=60, file_size=50):
         tr_hash = obj['hash']
         if rm_list.count(name) > 0:
             rm_hash.append(tr_hash)
-    print('name array:')
-    print(rm_list)
-    print('hash array:')
-    print(rm_hash)
+
+    # print(rm_list)
+    for rm_name in rm_list:
+        print(rm_name)
+    # print('hash array:')
+    # print(rm_hash)
     if len(rm_hash) > 0:
         qbt_client.torrents_delete(delete_files=True, torrent_hashes=rm_hash)
 
 
 if __name__ == '__main__':
-    categories = ['movie', 'TV', 'Anime', 'xxx']
+    categories = ['movie', 'TV', 'Anime', 'xxx', 'task']
     for ca in categories:
         check_tr_list(ca)
